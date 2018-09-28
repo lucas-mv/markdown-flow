@@ -18,26 +18,25 @@ export class AppComponent implements OnInit {
   curve = shape.curveMonotoneX;
   inputText = `
 
-  # Roteiro de teste app do twitter
+# Roteiro de teste app do twitter
 
-  + Entrar no app do twitter
-      + Tela home aberta [✔]
-  
-          A tela home é uma tela top com os tweet tudo
-          + Botão novo tweet não exibido
-          
-              + Exibir mensagem de erro
-          + Clicar no botão novo tweet (ação do link)
-              + Exibir tela de novo tweet
-                  
-                  + Descrição do fluxo da tela de novo tweet
-              + Exibir qualquer outra tela
-                  
-                  + Exibir mensagem de erro
-      + Exibir qualquer outra tela [❌]
-      
-          + Exibir mensagem de erro
-  `;
+- listas com - não são renderizadas no diagrama
+     - item de lista interno
+
++ outro caso de teste
+    + outro nó
+
++ Entrar no app do twitter
+    + (Abrir tela home) Tela home aberta [✔]
+
+        A tela home é uma tela top com os tweet tudo
+        + (Botão novo tweet não exibido) Exibir mensagem de erro
+        + Exibir tela de novo tweet (Clicar no botão novo tweet)
+            + Descrição do fluxo da tela de novo tweet
+
+            + Exibir mensagem de erro (Exibir qualquer outra tela)
+    + (Exibir qualquer outra tela) [❌]  Exibir mensagem de erro
+`;
 
   ngOnInit(): void {
     this.showGraph();

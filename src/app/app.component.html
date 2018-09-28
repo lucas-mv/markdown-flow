@@ -15,7 +15,7 @@
     [nodes]="nodes"
     [legend]="false"
     [curve]="curve"
-    [draggingEnabled]="false">
+    [draggingEnabled]="true">
 
     <ng-template #defsTemplate>
       <svg:marker id="arrow" viewBox="0 -5 10 10" refX="8" refY="0" markerWidth="4" markerHeight="4" orient="auto">
@@ -41,9 +41,9 @@
           class="edge-label"
           text-anchor="middle">
         <textPath
-                  style="fill: #666;"
-                  [attr.href]="'#' + link.id"
-                  startOffset="60%">
+          style="fill: #666;"
+          [attr.href]="'#' + link.id"
+          startOffset="60%">
           {{link.label}}
         </textPath>
       </svg:text>
