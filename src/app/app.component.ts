@@ -16,15 +16,16 @@ export class AppComponent implements OnInit {
   links = [];
   nodes = [];
   curve = shape.curveMonotoneX;
-  inputText = `
+  inputText = `# Roteiro de teste app do twitter
 
-# Roteiro de teste app do twitter
+Qualquer texto que não seja escrito como uma lista criada com o identificador + não será renderizado no diagrama.
+
+## Subtópico
+
+Este é um subtópico e funciona normalmente.
 
 - listas com - não são renderizadas no diagrama
      - item de lista interno
-
-+ outro caso de teste
-    + outro nó
 
 + Entrar no app do twitter
     + (Abrir tela home) Tela home aberta [✔]
@@ -36,6 +37,9 @@ export class AppComponent implements OnInit {
 
             + Exibir mensagem de erro (Exibir qualquer outra tela)
     + (Exibir qualquer outra tela) [❌]  Exibir mensagem de erro
+
++ outro caso de teste
+    + outro nó
 `;
 
   ngOnInit(): void {
