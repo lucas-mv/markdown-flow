@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import * as serializer from './serializer.js';
 import { v4 as uuid } from 'uuid';
 import * as shape from 'd3-shape';
@@ -13,6 +14,7 @@ export class AppComponent implements OnInit {
   constructor() { }
 
   title = 'app';
+  zoomToFit$: Subject<any> = new Subject();
   links = [];
   nodes = [];
   curve = shape.curveMonotoneX;
@@ -44,10 +46,34 @@ Este é um subtópico e funciona normalmente.
 
   ngOnInit(): void {
     this.showGraph();
+    this.getGraphSVG().setAttribute('fill', 'white');
   }
 
+  fitToView() {
+    this.zoomToFit();
+  }
+
+  export() {
+    const svgElement = this.getGraphSVG();
+    this.saveSvg(svgElement, 'diagrama');
+  }
+
+  saveSvg(svgEl, name) {
+    svgEl.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    const svgData = svgEl.outerHTML;
+    const preface = '<?xml version="1.0" standalone="no"?>\r\n';
+    const svgBlob = new Blob([preface, svgData], {type: 'image/svg+xml;charset=utf-8'});
+    const svgUrl = URL.createObjectURL(svgBlob);
+    const downloadLink = document.createElement('a');
+    downloadLink.href = svgUrl;
+    downloadLink.download = name;
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+}
+
   getGraphSVG() {
-    const graphSVG = document.getElementsByClassName('ngx-charts')[0];
+    return document.getElementsByClassName('ngx-charts')[0];
   }
 
   refreshViews() {
@@ -114,5 +140,9 @@ Este é um subtópico e funciona normalmente.
         this.createNode(node.children[nodeIndex], nodeId);
       }
     }
+  }
+
+  zoomToFit() {
+    this.zoomToFit$.next(true);
   }
 }

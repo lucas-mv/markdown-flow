@@ -8,6 +8,10 @@
 
   <div class="test-graph-container">
 
+    <button mat-mini-fab color="primary" class="export-button" (click)="export()">⬇</button>
+
+    <button mat-mini-fab color="accent" class="fit-button" (click)="fitToView()">🖼️</button>
+
     <ngx-graph
     id="main-graph"
     class="chart-container"
@@ -15,10 +19,11 @@
     [nodes]="nodes"
     [legend]="false"
     [curve]="curve"
+    [zoomToFit$]="zoomToFit$"
     [draggingEnabled]="true">
 
     <ng-template #defsTemplate>
-      <svg:marker id="arrow" viewBox="0 -5 10 10" refX="8" refY="0" markerWidth="4" markerHeight="4" orient="auto">
+      <svg:marker id="arrow" viewBox="0 -5 10 10" refX="8" refY="0" markerWidth="4" markerHeight="4" orient="auto" style="fill: #535c68;">
         <svg:path d="M0,-5L10,0L0,5" class="arrow-head" />
       </svg:marker>
     </ng-template>
@@ -26,7 +31,7 @@
     <ng-template #nodeTemplate let-node>
       <svg:g class="node">
         <svg:rect [attr.width]="node.width" [attr.height]="node.height" [attr.fill]="node.boxColor" rx="15" ry="15" />
-        <svg:text alignment-baseline="central" [attr.x]="10" [attr.y]="node.height / 2">{{node.label}}</svg:text>
+        <svg:text style="fill: #373d3f;" alignment-baseline="central" [attr.x]="10" [attr.y]="node.height / 2">{{node.label}}</svg:text>
       </svg:g>
     </ng-template>
 
@@ -34,14 +39,16 @@
       <svg:g class="edge">
         <svg:path
           class="line"
+          stroke="#535c68"
           stroke-width="2"
           marker-end="url(#arrow)" >
         </svg:path>
         <svg:text
+          style="fill: #535c68;"
           class="edge-label"
           text-anchor="middle">
         <textPath
-          style="fill: #666;"
+          style="fill: #373d3f;"
           [attr.href]="'#' + link.id"
           startOffset="60%">
           {{link.label}}

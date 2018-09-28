@@ -1,7 +1,7 @@
 * {
-    font-family: 'Ubuntu' !important;
-    src: url('/assets/fonts/ubuntu-font-family-0.83/Ubuntu-R.ttf');
- }
+  font-family: 'Ubuntu' !important;
+  src: url('/assets/fonts/ubuntu-font-family-0.83/Ubuntu-R.ttf');
+}
 
 .main-grid{
   display: grid;
@@ -25,13 +25,13 @@
 }
 
 .markdown-output-container{
-    display: grid;
-    grid-row: 1 /span 1;
-    grid-column: 2 /span 1;
-    max-height: 48.5vh;
-    min-height: 48.5vh;
-    height: 48.5vh;
-    overflow: auto;
+  display: grid;
+  grid-row: 1 /span 1;
+  grid-column: 2 /span 1;
+  max-height: 48.5vh;
+  min-height: 48.5vh;
+  height: 48.5vh;
+  overflow: auto;
 }
 
 .test-graph-container{
@@ -39,6 +39,25 @@
   height: 48.5vh;
   grid-row: 2 /span 1;
   grid-column: 1 /span 2;
+  grid-template-columns: 1fr auto auto;
+  grid-template-rows: auto 1fr;
+}
+
+.export-button{
+  grid-row: 1 /span 1;
+  grid-column: 3 /span 1;
+  margin-right: 15px;
+}
+
+.fit-button{
+  grid-row: 1 /span 1;
+  grid-column: 2 /span 1;
+  margin-right: 8px;
+}
+
+.chart-container{
+  grid-row: 1 /span 2;
+  grid-column: 1 /span 3;
 }
 
 .graph {
