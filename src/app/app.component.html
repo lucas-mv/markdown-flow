@@ -1,7 +1,7 @@
 <div class="main-grid">
 
-  <mat-form-field class="markdown-input-container">
-    <textarea matInput placeholder="Markdown" [(ngModel)]="inputText" (change)="refreshViews()"></textarea>
+  <mat-form-field class="markdown-input-container markdown-input">
+    <textarea class="markdown-input" matInput placeholder="Markdown" [(ngModel)]="inputText" (change)="refreshViews()"></textarea>
   </mat-form-field>
 
   <markdown class="markdown-output-container" [data]="inputText"></markdown>
@@ -9,6 +9,7 @@
   <div class="test-graph-container">
 
     <ngx-graph
+    id="main-graph"
     class="chart-container"
     [links]="links"
     [nodes]="nodes"
@@ -23,13 +24,8 @@
     </ng-template>
 
     <ng-template #nodeTemplate let-node>
-      <svg:g class="node"
-      ngx-tooltip
-      [tooltipPlacement]="'top'"
-      [tooltipType]="'tooltip'"
-      [tooltipTitle]="node.position"
-      >
-        <svg:rect [attr.width]="node.width" [attr.height]="node.height" [attr.fill]="node.options.color" />
+      <svg:g class="node">
+        <svg:rect [attr.width]="node.width" [attr.height]="node.height" [attr.fill]="node.boxColor" rx="15" ry="15" />
         <svg:text alignment-baseline="central" [attr.x]="10" [attr.y]="node.height / 2">{{node.label}}</svg:text>
       </svg:g>
     </ng-template>

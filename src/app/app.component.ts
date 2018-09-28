@@ -15,32 +15,36 @@ export class AppComponent implements OnInit {
   title = 'app';
   links = [];
   nodes = [];
-  curve = shape.curveBundle.beta(1);
+  curve = shape.curveMonotoneX;
   inputText = `
 
   # Roteiro de teste app do twitter
 
-  - Entrar no app do twitter
-      - Tela home aberta
+  + Entrar no app do twitter
+      + Tela home aberta [✔]
   
           A tela home é uma tela top com os tweet tudo
-          - Botão novo tweet não exibido
+          + Botão novo tweet não exibido
           
-              Exibir mensagem de erro
-          - Clicar no botão novo tweet
-              - Exibir tela de novo tweet
+              + Exibir mensagem de erro
+          + Clicar no botão novo tweet (ação do link)
+              + Exibir tela de novo tweet
                   
-                  Descrição do fluxo da tela de novo tweet
-              - Exibir qualquer outra tela
+                  + Descrição do fluxo da tela de novo tweet
+              + Exibir qualquer outra tela
                   
-                  Exibir mensagem de erro
-      - Exibir qualquer outra tela
+                  + Exibir mensagem de erro
+      + Exibir qualquer outra tela [❌]
       
-          Exibir mensagem de erro
+          + Exibir mensagem de erro
   `;
 
   ngOnInit(): void {
     this.showGraph();
+  }
+
+  getGraphSVG() {
+    const graphSVG = document.getElementsByClassName('ngx-charts')[0];
   }
 
   refreshViews() {
@@ -65,21 +69,40 @@ export class AppComponent implements OnInit {
   }
 
   createNode(node, parentId) {
-    if (!node.title || node.title === null || node.title === '') {
+    if (!node.title || node.title === null || node.title.replace(/\s/g, '') === '' || !node.title.trimStart().startsWith('+')) {
       return;
     }
 
     const nodeId = uuid();
 
-    this.nodes.push({
+    const nodeData = {
       id: nodeId,
-      label: node.title
-    });
+      label: node.title.trimStart().replace('+', ''),
+      boxColor: '#c7ecee'
+    };
+
+    if (nodeData.label.includes('[✔]')) {
+      nodeData.label = nodeData.label.replace('[✔]', '');
+      nodeData.boxColor = '#badc58';
+    } else if (nodeData.label.includes('[❌]')) {
+      nodeData.label = nodeData.label.replace('[❌]', '');
+      nodeData.boxColor = '#eb4d4b';
+    }
+
+    let linkLabel = '';
+    const nodeDescription = nodeData.label.match(/\((.*?)\)/);
+    if (nodeDescription) {
+      nodeData.label = nodeData.label.replace(nodeDescription[0], '');
+      linkLabel = nodeDescription[0].replace('(', '').replace(')', '');
+    }
+
+    this.nodes.push(nodeData);
 
     if (parentId !== null) {
       this.links.push({
         source: parentId,
-        target: nodeId
+        target: nodeId,
+        label: linkLabel
       });
     }
 
@@ -89,66 +112,4 @@ export class AppComponent implements OnInit {
       }
     }
   }
-
-  // showGraph() {
-  //   this.hierarchialGraph.nodes = [
-  // {
-  //   id: 'start',
-  //   label: 'scan',
-  //   position: 'x0'
-  // }, {
-  //   id: '1',
-  //   label: 'Event#a',
-  //   position: 'x1'
-  // }, {
-  //   id: '2',
-  //   label: 'Event#x',
-  //   position: 'x2'
-  // }, {
-  //   id: '3',
-  //   label: 'Event#b',
-  //   position: 'x3'
-  // }, {
-  //   id: '4',
-  //   label: 'Event#c',
-  //   position: 'x4'
-  // }, {
-  //   id: '5',
-  //   label: 'Event#y',
-  //   position: 'x5'
-  // }, {
-  //   id: '6',
-  //   label: 'Event#z',
-  //   position: 'x6'
-  // }
-  // ];
-
-  // this.hierarchialGraph.links = [
-  // {
-  //   source: 'start',
-  //   target: '1',
-  //   label: 'Process#1'
-  // }, {
-  //   source: 'start',
-  //   target: '2',
-  //   label: 'Process#2'
-  // }, {
-  //   source: '1',
-  //   target: '3',
-  //   label: 'Process#3'
-  // }, {
-  //   source: '2',
-  //   target: '4',
-  //   label: 'Process#4'
-  // }, {
-  //   source: '2',
-  //   target: '6',
-  //   label: 'Process#6'
-  // }, {
-  //   source: '3',
-  //   target: '5'
-  // }
-  // ];
-
-  // }
 }

@@ -1,3 +1,8 @@
+* {
+    font-family: 'Ubuntu' !important;
+    src: url('/assets/fonts/ubuntu-font-family-0.83/Ubuntu-R.ttf');
+ }
+
 .main-grid{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -11,23 +16,27 @@
     display: grid;
     grid-row: 1 /span 1;
     grid-column: 1 /span 1;
-    max-height: 49vh;
-    min-height: 49vh;
-    height: 49vh;
+}
+
+.markdown-input{
+    max-height: 45vh;
+    min-height: 45vh;
+    height: 45vh;
 }
 
 .markdown-output-container{
     display: grid;
     grid-row: 1 /span 1;
     grid-column: 2 /span 1;
-    max-height: 49vh;
-    min-height: 49vh;
-    height: 49vh;
+    max-height: 48.5vh;
+    min-height: 48.5vh;
+    height: 48.5vh;
     overflow: auto;
 }
 
 .test-graph-container{
     display: grid;
+    height: 48.5vh;
     grid-row: 2 /span 1;
     grid-column: 1 /span 2;
 }
