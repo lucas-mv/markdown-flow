@@ -50,6 +50,22 @@ Este é um subtópico e funciona normalmente.
     this.showGraph();
   }
 
+  onInputTabKeydown(keydownEvent) {
+    if (keydownEvent.keyCode === 9) {
+      const markdownInput = <HTMLTextAreaElement>document.getElementById('markdown-input-id');
+      const start = markdownInput.selectionStart;
+      const end = markdownInput.selectionEnd;
+
+      markdownInput.value = markdownInput.value.substring(0, start) + '     ' + markdownInput.value.substring(end);
+      markdownInput.selectionStart = start + 5;
+      markdownInput.selectionEnd = markdownInput.selectionStart;
+
+      this.inputText = markdownInput.value;
+
+      return false;
+    }
+  }
+
   fitToView() {
     this.zoomToFit();
   }
