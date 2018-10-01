@@ -7,7 +7,15 @@ import { NgxGraphModule } from '@swimlane/ngx-graph';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatFormFieldModule, MatInputModule, MatRippleModule, MatIconModule, MatCardModule } from '@angular/material';
+import {
+  MatTooltipModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatRippleModule,
+  MatIconModule,
+  MatCardModule
+} from '@angular/material';
 import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
@@ -26,6 +34,7 @@ import { MarkdownModule } from 'ngx-markdown';
     MatRippleModule,
     MatIconModule,
     MatCardModule,
+    MatTooltipModule,
     MarkdownModule.forRoot()
   ],
   providers: [],

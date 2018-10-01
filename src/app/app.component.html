@@ -27,11 +27,11 @@
 
     <div class="graph-container">
 
-      <button mat-mini-fab color="primary" class="export-button" (click)="export()">⬇</button>
+      <button matTooltip="Export the graph in the card" mat-mini-fab color="primary" class="export-button" (click)="export()">⬇</button>
 
-      <button mat-mini-fab color="accent" class="fit-button" (click)="fitToView()">🖼️</button>
+      <button matTooltip="Fit graph to card" mat-mini-fab color="accent" class="fit-button" (click)="fitToView()">🖼️</button>
 
-      <button mat-mini-fab color="accent" class="refresh-button" (click)="refreshView()">🔄️</button>
+      <button matTooltip="Refresh the graph" mat-mini-fab color="accent" class="refresh-button" (click)="refreshView()">🔄️</button>
 
       <ngx-graph
       class="chart-container"
