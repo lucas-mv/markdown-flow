@@ -46,7 +46,7 @@ Este é um subtópico e funciona normalmente.
 `;
 
   ngOnInit(): void {
-    this.graphViewBox = [window.innerWidth - 16, (window.innerHeight * 0.4) + 48];
+    this.graphViewBox = [window.innerWidth - 16, (window.innerHeight * 0.4) + 42];
     this.showGraph();
   }
 
