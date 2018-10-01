@@ -1,9 +1,7 @@
 @import '~@angular/material/theming';
-@import url('https://fonts.googleapis.com/css?family=Ubuntu');
-@font-face {
-    font-family: 'Ubuntu' !important;
-    src: url('/assets/fonts/ubuntu-font-family-0.83/Ubuntu-R.ttf');
-}
+
+$custom-typography: mat-typography-config($font-family: '"Ubuntu", sans-serif;');
+@include mat-core($custom-typography);
 
 $main-primary: (
     50: #f7fbeb,
