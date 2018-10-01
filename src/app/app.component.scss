@@ -16,12 +16,13 @@
   display: grid;
   grid-row: 1 /span 1;
   grid-column: 1 /span 1;
+  margin-bottom: -1.25em!important;
 }
 
 .markdown-input{
-    max-height: 45vh;
-    min-height: 45vh;
-    height: 45vh;
+  max-height: 48.5vh;
+  min-height: 48.5vh;
+  height: 48.5vh;
 }
 
 .markdown-output-container{
@@ -32,27 +33,36 @@
   min-height: 48.5vh;
   height: 48.5vh;
   overflow: auto;
+  border: 0;
+  box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+  margin: 8px;
+  padding: 8px;
 }
 
 .test-graph-container{
   display: grid;
-  height: 48.5vh;
+  height: 42.5vh;
   grid-row: 2 /span 1;
   grid-column: 1 /span 2;
   grid-template-columns: 1fr auto auto;
   grid-template-rows: auto 1fr;
+  border: 0;
+  box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
+  margin: 8px;
 }
 
 .export-button{
   grid-row: 1 /span 1;
   grid-column: 3 /span 1;
   margin-right: 15px;
+  margin-top: 8px;
 }
 
 .fit-button{
   grid-row: 1 /span 1;
   grid-column: 2 /span 1;
   margin-right: 8px;
+  margin-top: 8px;
 }
 
 .chart-container{
