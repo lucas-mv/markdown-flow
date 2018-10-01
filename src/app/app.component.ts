@@ -48,7 +48,6 @@ Este é um subtópico e funciona normalmente.
   ngOnInit(): void {
     this.graphViewBox = [window.innerWidth - 16, (window.innerHeight * 0.4) + 48];
     this.showGraph();
-    this.getGraphSVG().setAttribute('fill', 'white');
   }
 
   fitToView() {
@@ -78,7 +77,7 @@ Este é um subtópico e funciona normalmente.
     return document.getElementsByClassName('ngx-charts')[0];
   }
 
-  refreshViews() {
+  refreshView() {
     this.links = [];
     this.nodes = [];
     this.showGraph();
@@ -89,6 +88,7 @@ Este é um subtópico e funciona normalmente.
     const preProcessedText = this.inputText.toString().replace(/^\s*[\r\n]/gm, '');
     preProcessedText.split('\n').reduce(serializer.append_rec, root);
     this.createNodeList(root);
+    this.getGraphSVG().setAttribute('fill', 'white');
   }
 
   createNodeList(root) {
