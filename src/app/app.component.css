@@ -74,7 +74,6 @@
 
 .graph .edge .edge-label {
   stroke: none;
-  font-size: 12px;
   fill: #666;
 }
 
@@ -97,12 +96,6 @@
 .graph .edge {
   stroke: #666;
   fill: none;
-}
-
-.graph .edge .edge-label {
-  stroke: none;
-  font-size: 12px;
-  fill: #666;
 }
 
 .graph .panning-rect {
