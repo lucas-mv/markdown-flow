@@ -1,7 +1,112 @@
-/* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/theming';
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 @font-face {
     font-family: 'Ubuntu' !important;
     src: url('/assets/fonts/ubuntu-font-family-0.83/Ubuntu-R.ttf');
- }
+}
+
+$main-primary: (
+    50: #f7fbeb,
+    100: #eaf5cd,
+    200: #ddeeac,
+    300: #cfe78a,
+    400: #c4e171,
+    500: #badc58,
+    600: #b3d850,
+    700: #abd347,
+    800: #a3ce3d,
+    900: #94c52d,
+    A100: #ffffff,
+    A200: #f0ffd4,
+    A400: #dfffa1,
+    A700: #d6ff87,
+    contrast: (
+        50: $black-87-opacity,
+        100: $black-87-opacity,
+        200: $black-87-opacity,
+        300: white,
+        400: white,
+        500: $white-87-opacity,
+        600: $white-87-opacity,
+        700: $white-87-opacity,
+        800: $white-87-opacity,
+        900: $white-87-opacity,
+        A100: $black-87-opacity,
+        A200: $white-87-opacity,
+        A400: $white-87-opacity,
+        A700: $white-87-opacity,
+    )
+);
+
+$main-accent: (
+    50: #f8fdfd,
+    100: #eef9fa,
+    200: #e3f6f7,
+    300: #d8f2f3,
+    400: #cfeff1,
+    500: #c7ecee,
+    600: #c1eaec,
+    700: #bae7e9,
+    800: #b3e4e7,
+    900: #a6dfe2,
+    A100: #ffffff,
+    A200: #ffffff,
+    A400: #ffffff,
+    A700: #ffffff,
+    contrast: (
+        50: $black-87-opacity,
+        100: $black-87-opacity,
+        200: $black-87-opacity,
+        300: white,
+        400: white,
+        500: $white-87-opacity,
+        600: $white-87-opacity,
+        700: $white-87-opacity,
+        800: $white-87-opacity,
+        900: $white-87-opacity,
+        A100: $black-87-opacity,
+        A200: $white-87-opacity,
+        A400: $white-87-opacity,
+        A700: $white-87-opacity,
+    )
+);
+
+$main-warn: (
+    50: #fdeae9,
+    100: #f9cac9,
+    200: #f5a6a5,
+    300: #f18281,
+    400: #ee6866,
+    500: #eb4d4b,
+    600: #e94644,
+    700: #e53d3b,
+    800: #e23433,
+    900: #dd2523,
+    A100: #ffffff,
+    A200: #ffe4e4,
+    A400: #ffb1b1,
+    A700: #ff9897,
+    contrast: (
+        50: $black-87-opacity,
+        100: $black-87-opacity,
+        200: $black-87-opacity,
+        300: white,
+        400: white,
+        500: $white-87-opacity,
+        600: $white-87-opacity,
+        700: $white-87-opacity,
+        800: $white-87-opacity,
+        900: $white-87-opacity,
+        A100: $black-87-opacity,
+        A200: $white-87-opacity,
+        A400: $white-87-opacity,
+        A700: $white-87-opacity,
+    )
+);
+
+$main-primary-palette: mat-palette($main-primary);
+$main-accent-palette: mat-palette($main-accent);
+$main-warn-palette: mat-palette($main-warn);
+
+$main-theme: mat-light-theme($main-primary-palette, $main-accent-palette, $main-warn-palette);
+@include angular-material-theme($main-theme);
