@@ -1,5 +1,14 @@
-@import '~@angular/material/theming';
+body{
+    margin: 0px!important;
+    padding: 0px!important;
+}
 
+.ubuntu-font {
+    font-family: 'Ubuntu' !important;
+    src: url('/assets/fonts/ubuntu-font-family-0.83/Ubuntu-R.ttf');
+}
+
+@import '~@angular/material/theming';
 $custom-typography: mat-typography-config($font-family: '"Ubuntu", sans-serif;');
 @include mat-core($custom-typography);
 

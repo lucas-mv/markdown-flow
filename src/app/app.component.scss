@@ -1,73 +1,81 @@
-* {
-  font-family: 'Ubuntu' !important;
-  src: url('/assets/fonts/ubuntu-font-family-0.83/Ubuntu-R.ttf');
-}
-
 .main-grid{
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  width: 99vw;
-  height: 97vh;
+  width: calc(100vw - 16px);
+  height: calc(100vh -16px);
   overflow: hidden;
-}
-
-.markdown-input-container{
-  display: grid;
-  grid-row: 1 /span 1;
-  grid-column: 1 /span 1;
-  margin-bottom: -1.25em!important;
-}
-
-.markdown-input{
-  max-height: 48.5vh;
-  min-height: 48.5vh;
-  height: 48.5vh;
-}
-
-.markdown-output-container{
-  display: grid;
-  grid-row: 1 /span 1;
-  grid-column: 2 /span 1;
-  max-height: 48.5vh;
-  min-height: 48.5vh;
-  height: 48.5vh;
-  overflow: auto;
-  border: 0;
-  box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
-  margin: 8px;
+  background-color: #FAFAFA;
   padding: 8px;
 }
 
-.test-graph-container{
+.input-container{
   display: grid;
-  height: 42.5vh;
-  grid-row: 2 /span 1;
-  grid-column: 1 /span 2;
-  grid-template-columns: 1fr auto auto;
-  grid-template-rows: auto 1fr;
-  border: 0;
-  box-shadow: 0 2px 6px 0 hsla(0, 0%, 0%, 0.2);
-  margin: 8px;
-}
-
-.export-button{
+  margin-right: 4px;
   grid-row: 1 /span 1;
-  grid-column: 3 /span 1;
-  margin-right: 15px;
-  margin-top: 8px;
+  grid-column: 1 /span 1;
+  margin-bottom: -1.25em!important;
+  max-height: 40vh;
+  min-height: 40vh;
+  height: 40vh;
+
+  .input-form-field{
+    margin-bottom: -1.25em!important;    
+
+    .markdown-input{
+      max-height: calc(40vh - 24px - 56px);
+      min-height: calc(40vh - 24px - 56px);
+      height: calc(40vh - 24px - 56px);
+    }  
+  }
 }
 
-.fit-button{
+.markdown-output-container{
+  margin-left: 4px;
+  display: grid;
   grid-row: 1 /span 1;
   grid-column: 2 /span 1;
-  margin-right: 8px;
-  margin-top: 8px;
+  max-height: 40vh;
+  min-height: 40vh;
+  height: 40vh;
+
+  .markdown-output{
+    overflow: auto;
+  }
 }
 
-.chart-container{
-  grid-row: 1 /span 2;
-  grid-column: 1 /span 3;
+.graph-main-container{
+  margin-top: 8px;
+  display: grid;
+  height: 40vh;
+  grid-row: 2 /span 1;
+  grid-column: 1 /span 2;
+
+  .graph-container{
+    display: grid;
+    margin: -24px;
+    grid-template-columns: 1fr auto auto;
+    grid-template-rows: auto 1fr;
+
+    .export-button{
+      grid-row: 1 /span 1;
+      grid-column: 3 /span 1;
+      margin-top: 24px;
+      margin-right: 24px;
+    }
+    
+    .fit-button{
+      grid-row: 1 /span 1;
+      grid-column: 2 /span 1;
+      margin-right: 8px;
+      margin-top: 24px;
+    }
+  
+    .chart-container{
+      grid-row: 1 /span 2;
+      grid-column: 1 /span 3;
+    }
+  }
 }
 
 .graph {

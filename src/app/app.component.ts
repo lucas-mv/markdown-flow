@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   zoomToFit$: Subject<any> = new Subject();
   links = [];
   nodes = [];
+  graphViewBox = [];
   curve = shape.curveMonotoneX;
   inputText = `# Roteiro de teste app do twitter
 
@@ -45,6 +46,7 @@ Este é um subtópico e funciona normalmente.
 `;
 
   ngOnInit(): void {
+    this.graphViewBox = [window.innerWidth - 16, (window.innerHeight * 0.4) + 48];
     this.showGraph();
     this.getGraphSVG().setAttribute('fill', 'white');
   }

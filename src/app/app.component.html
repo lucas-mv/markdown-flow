@@ -1,63 +1,85 @@
 <div class="main-grid">
 
-  <mat-form-field class="markdown-input-container markdown-input">
-    <textarea class="markdown-input" matInput placeholder="Markdown" [(ngModel)]="inputText" (change)="refreshViews()"></textarea>
-  </mat-form-field>
+  <mat-card class="input-container ubuntu-font">
+    <mat-card-header>
+      <mat-card-title>Markdown input</mat-card-title>
+      <mat-card-subtitle>
+        <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">
+          Checkout the markdown cheat sheet!
+        </a>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-form-field class="input-form-field">
+      <textarea class="markdown-input" matInput [(ngModel)]="inputText" (change)="refreshViews()"></textarea>
+    </mat-form-field>
+  </mat-card>
+  
 
-  <markdown class="markdown-output-container" [data]="inputText"></markdown>
+  <mat-card class="markdown-output-container ubuntu-font">
+    <mat-card-header>
+      <mat-card-title>Markdown preview</mat-card-title>
+      <mat-card-subtitle>The input text will appear rendered here</mat-card-subtitle>
+    </mat-card-header>
+    <markdown class="markdown-output" [data]="inputText"></markdown>
+  </mat-card>
 
-  <div class="test-graph-container">
+  <mat-card class="graph-main-container">
 
-    <button mat-mini-fab color="primary" class="export-button" (click)="export()">⬇</button>
+    <div class="graph-container">
 
-    <button mat-mini-fab color="accent" class="fit-button" (click)="fitToView()">🖼️</button>
+      <button mat-mini-fab color="primary" class="export-button" (click)="export()">⬇</button>
 
-    <ngx-graph
-    id="main-graph"
-    class="chart-container"
-    [links]="links"
-    [nodes]="nodes"
-    [legend]="false"
-    [curve]="curve"
-    [zoomToFit$]="zoomToFit$"
-    [draggingEnabled]="true">
+      <button mat-mini-fab color="accent" class="fit-button" (click)="fitToView()">🖼️</button>
 
-    <ng-template #defsTemplate>
-      <svg:marker id="arrow" viewBox="0 -5 10 10" refX="8" refY="0" markerWidth="4" markerHeight="4" orient="auto" style="fill: #535c68;">
-        <svg:path d="M0,-5L10,0L0,5" class="arrow-head" />
-      </svg:marker>
-    </ng-template>
+      <ngx-graph
+      class="chart-container"
+      [view]="graphViewBox"
+      [links]="links"
+      [nodes]="nodes"
+      [legend]="false"
+      [curve]="curve"
+      [zoomToFit$]="zoomToFit$"
+      [draggingEnabled]="true">
 
-    <ng-template #nodeTemplate let-node>
-      <svg:g class="node">
-        <svg:rect [attr.width]="node.width" [attr.height]="node.height" [attr.fill]="node.boxColor" rx="15" ry="15" />
-        <svg:text style="fill: #373d3f;" alignment-baseline="central" [attr.x]="10" [attr.y]="node.height / 2">{{node.label}}</svg:text>
-      </svg:g>
-    </ng-template>
+      <ng-template #defsTemplate>
+        <svg:marker id="arrow" viewBox="0 -5 10 10" refX="8" refY="0" markerWidth="4" markerHeight="4" orient="auto" style="fill: #535c68;">
+          <svg:path d="M0,-5L10,0L0,5" class="arrow-head" />
+        </svg:marker>
+      </ng-template>
 
-    <ng-template #linkTemplate let-link>
-      <svg:g class="edge">
-        <svg:path
-          class="line"
-          stroke="#535c68"
-          stroke-width="2"
-          marker-end="url(#arrow)" >
-        </svg:path>
-        <svg:text
-          style="fill: #535c68;"
-          class="edge-label"
-          text-anchor="start">
-        <textPath
-          style="fill: #373d3f; font-size:10;"
-          [attr.href]="'#' + link.id"
-          startOffset="10%">
-          {{link.label}}
-        </textPath>
-      </svg:text>
-      </svg:g>
-    </ng-template>
+      <ng-template #nodeTemplate let-node>
+        <svg:g class="node">
+          <svg:rect [attr.width]="node.width" [attr.height]="node.height" [attr.fill]="node.boxColor" rx="15" ry="15" />
+          <svg:text style="fill: #373d3f;" alignment-baseline="central" [attr.x]="10" [attr.y]="node.height / 2">{{node.label}}</svg:text>
+        </svg:g>
+      </ng-template>
 
-    </ngx-graph>
-  </div>
+      <ng-template #linkTemplate let-link>
+        <svg:g class="edge">
+          <svg:path
+            class="line"
+            stroke="#535c68"
+            stroke-width="2"
+            marker-end="url(#arrow)" >
+          </svg:path>
+          <svg:text
+            style="fill: #535c68;"
+            class="edge-label"
+            text-anchor="start">
+          <textPath
+            style="fill: #373d3f; font-size:10;"
+            [attr.href]="'#' + link.id"
+            startOffset="10%">
+            {{link.label}}
+          </textPath>
+        </svg:text>
+        </svg:g>
+      </ng-template>
+
+      </ngx-graph>
+
+    </div>    
+
+  </mat-card>
 
 </div>
