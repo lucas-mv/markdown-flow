@@ -39,6 +39,10 @@ Este é um subtópico e funciona normalmente.
 `;
 
   ngOnInit() {
+    const previousText = localStorage.getItem('markdown');
+    if (previousText) {
+      this.inputText = previousText;
+    }
   }
 
   onInputTabKeydown(keydownEvent) {
@@ -57,7 +61,8 @@ Este é um subtópico e funciona normalmente.
     }
   }
 
-  refreshView() {
+  inputTextChanged() {
     this.refreshGraphEvent.next();
+    localStorage.setItem('markdown', this.inputText);
   }
 }

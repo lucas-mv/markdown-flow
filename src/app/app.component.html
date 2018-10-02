@@ -10,7 +10,7 @@
       </mat-card-subtitle>
     </mat-card-header>
     <mat-form-field class="input-form-field">
-      <textarea (keydown)="onInputTabKeydown($event)" id="markdown-input-id" class="markdown-input" matInput [(ngModel)]="inputText" (change)="refreshView()"></textarea>
+      <textarea (keydown)="onInputTabKeydown($event)" id="markdown-input-id" class="markdown-input" matInput [(ngModel)]="inputText" (change)="inputTextChanged()"></textarea>
     </mat-form-field>
   </mat-card>
   
