@@ -1,0 +1,13 @@
+<mat-card 
+  class="markdown-output-container ubuntu-font" 
+  [ngClass]="(smallView) ? 'small-view' : 'large-view'">
+  <button 
+    *ngIf="smallView" 
+    matTooltip="Open in dialog" 
+    mat-mini-fab color="accent" 
+    class="open-dialog-button" 
+    (click)="openMarkdownDialog()">
+    <mat-icon>open_in_new</mat-icon>
+  </button>
+  <markdown class="markdown-output" [data]="inputText"></markdown>
+</mat-card>

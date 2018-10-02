@@ -26,26 +26,15 @@
       max-height: calc(40vh - 24px - 56px);
       min-height: calc(40vh - 24px - 56px);
       height: calc(40vh - 24px - 56px);
-    }  
+    }
   }
 }
 
-.markdown-output-container{
-  margin-left: 4px;
-  display: grid;
+.markdown-preview-card{
   grid-row: 1 /span 1;
   grid-column: 2 /span 1;
-  max-height: 40vh;
-  min-height: 40vh;
+  margin-left: 4px;
   height: 40vh;
-  border-top: 6px solid #c7ecee;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-  padding-top: 18px!important;
-
-  .markdown-output{
-    overflow: auto;
-  }
 }
 
 .graph-card{

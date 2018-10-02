@@ -20,12 +20,16 @@ import {
 import { MarkdownModule } from 'ngx-markdown';
 import { GraphDialogComponent } from './components/graph-dialog/graph-dialog.component';
 import { GraphComponent } from './components/graph/graph.component';
+import { MarkdownPreviewComponent } from './components/markdown-preview/markdown-preview.component';
+import { MarkdownPreviewDialogComponent } from './components/markdown-preview-dialog/markdown-preview-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GraphDialogComponent,
-    GraphComponent
+    GraphComponent,
+    MarkdownPreviewComponent,
+    MarkdownPreviewDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,8 @@ import { GraphComponent } from './components/graph/graph.component';
     MarkdownModule.forRoot()
   ],
   entryComponents: [
-    GraphDialogComponent
+    GraphDialogComponent,
+    MarkdownPreviewDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

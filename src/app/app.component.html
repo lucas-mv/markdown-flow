@@ -15,13 +15,10 @@
   </mat-card>
   
 
-  <mat-card class="markdown-output-container ubuntu-font">
-    <mat-card-header>
-      <mat-card-title>Markdown preview</mat-card-title>
-      <mat-card-subtitle>The input text will appear rendered here.</mat-card-subtitle>
-    </mat-card-header>
-    <markdown class="markdown-output" [data]="inputText"></markdown>
-  </mat-card>
+  <app-markdown-preview
+    class="markdown-preview-card"
+    [inputText]="inputText"
+    [smallView]="true"></app-markdown-preview>
 
   <app-graph 
     class="graph-card" 
