@@ -30,13 +30,17 @@ export class GraphComponent implements OnInit, OnDestroy {
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.refreshGraphEventSubscription = this.refreshGraphEvent.subscribe(() => this.refreshView());
+    if (this.refreshGraphEvent) {
+      this.refreshGraphEventSubscription = this.refreshGraphEvent.subscribe(() => this.refreshView());
+    }
     this.graphViewBox = [window.innerWidth - 16, (window.innerHeight * this.heightMultiplier) + 42];
     this.showGraph();
   }
 
   ngOnDestroy() {
-    this.refreshGraphEventSubscription.unsubscribe();
+    if (this.refreshGraphEventSubscription) {
+      this.refreshGraphEventSubscription.unsubscribe();
+    }
   }
 
   fitToView() {
