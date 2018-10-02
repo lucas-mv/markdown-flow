@@ -2,6 +2,8 @@
 
 Automatic flowchart generator based on the [markdown language](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
+Written in [Angular](https://angular.io/) with help of [ngx-graph](https://github.com/swimlane/ngx-graph).
+
 ## Adding nodes
 Nodes can be created using the `+` list indicator, all other list formats are allowed.
 
