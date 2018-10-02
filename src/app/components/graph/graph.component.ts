@@ -112,6 +112,9 @@ export class GraphComponent implements OnInit, OnDestroy {
     } else if (nodeData.label.includes('[❌]')) {
       nodeData.label = nodeData.label.replace('[❌]', '');
       nodeData.boxColor = '#eb4d4b';
+    } else if (nodeData.label.includes('[⚠️]')) {
+      nodeData.label = nodeData.label.replace('[⚠️]', '');
+      nodeData.boxColor = '#f6e58d';
     }
 
     let linkLabel = '';

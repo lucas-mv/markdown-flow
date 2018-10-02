@@ -27,7 +27,7 @@ Este é um subtópico e funciona normalmente.
     + (Abrir tela home) Tela home aberta [✔]
 
         A tela home é uma tela top com os tweet tudo
-        + (Botão novo tweet não exibido) Exibir mensagem de erro
+        + (Botão novo tweet não exibido) Exibir mensagem de erro [⚠️]
         + Exibir tela de novo tweet (Clicar no botão novo tweet)
             + Descrição do fluxo da tela de novo tweet
 
