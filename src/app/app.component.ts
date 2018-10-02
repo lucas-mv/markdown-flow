@@ -10,9 +10,8 @@ export class AppComponent implements OnInit {
 
   constructor() { }
 
-  private refreshGraphEvent: Subject<void> = new Subject<void>();
-
   title = 'app';
+  refreshGraphEvent: Subject<void> = new Subject<void>();
   inputText = `# Roteiro de teste app do twitter
 
 Qualquer texto que não seja escrito como uma lista criada com o identificador + não será renderizado no diagrama.
