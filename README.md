@@ -4,6 +4,8 @@ Automatic flowchart generator based on the [markdown language](https://github.co
 
 Written in [Angular](https://angular.io/) with help of [ngx-graph](https://github.com/swimlane/ngx-graph).
 
+Color palette based on the [Aussie Palette](https://flatuicolors.com/palette/au) by [Flat UI Colors](https://flatuicolors.com/).
+
 ## Adding nodes
 Nodes can be created using the `+` list indicator. 
 
