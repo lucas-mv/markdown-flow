@@ -16,6 +16,7 @@ Nodes can be collored by adding the following codes to the node line:
 
 - `[❌]` colors the node red
 - `[✔]` colors the node green
+- `[⚠️]` colors the node yellow
 
 ## Exporting
 The flowchart can be exported to `.svg`, but for now only the part of the diagram that's being shown in the screen is going to exported.
