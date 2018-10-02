@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
   constructor() { }
+
+  private refreshGraphEvent: Subject<void> = new Subject<void>();
 
   title = 'app';
   inputText = `# Roteiro de teste app do twitter
@@ -53,5 +56,9 @@ Este é um subtópico e funciona normalmente.
 
       return false;
     }
+  }
+
+  refreshView() {
+    this.refreshGraphEvent.next();
   }
 }

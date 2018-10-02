@@ -22,6 +22,7 @@
 
   <app-graph 
     class="graph-card" 
+    [refreshGraphEvent]="refreshGraphEvent.asObservable()"
     [inputText]="inputText"
     [heightMultiplier]="0.4"
     [showOpenDialog]="true"></app-graph>

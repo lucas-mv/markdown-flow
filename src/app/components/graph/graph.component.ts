@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Subject, Observable } from 'rxjs';
 import * as serializer from '../../serializer.js';
 import { v4 as uuid } from 'uuid';
 import * as shape from 'd3-shape';
@@ -12,7 +12,10 @@ import { MatDialog } from '@angular/material';
   templateUrl: './graph.component.html',
   styleUrls: ['./graph.component.scss']
 })
-export class GraphComponent implements OnInit {
+export class GraphComponent implements OnInit, OnDestroy {
+
+  private refreshGraphEventSubscription: any;
+  @Input() refreshGraphEvent: Observable<void>;
 
   @Input() inputText: string;
   @Input() heightMultiplier: number;
@@ -27,8 +30,13 @@ export class GraphComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
+    this.refreshGraphEventSubscription = this.refreshGraphEvent.subscribe(() => this.refreshView());
     this.graphViewBox = [window.innerWidth - 16, (window.innerHeight * this.heightMultiplier) + 42];
     this.showGraph();
+  }
+
+  ngOnDestroy() {
+    this.refreshGraphEventSubscription.unsubscribe();
   }
 
   fitToView() {
