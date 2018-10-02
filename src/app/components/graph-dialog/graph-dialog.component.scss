@@ -1,0 +1,8 @@
+.dialog{
+    height: 98vh;
+    display: flex;
+    margin: -32px -24px -24px -24px;
+    width: calc(100vw - 16px)!important;
+    max-width: none !important;
+    overflow: hidden;
+}

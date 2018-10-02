@@ -14,13 +14,18 @@ import {
   MatInputModule,
   MatRippleModule,
   MatIconModule,
-  MatCardModule
+  MatCardModule,
+  MatDialogModule
 } from '@angular/material';
 import { MarkdownModule } from 'ngx-markdown';
+import { GraphDialogComponent } from './components/graph-dialog/graph-dialog.component';
+import { GraphComponent } from './components/graph/graph.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GraphDialogComponent,
+    GraphComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,11 @@ import { MarkdownModule } from 'ngx-markdown';
     MatIconModule,
     MatCardModule,
     MatTooltipModule,
+    MatDialogModule,
     MarkdownModule.forRoot()
+  ],
+  entryComponents: [
+    GraphDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

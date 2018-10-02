@@ -8,6 +8,11 @@ body{
     src: url('/assets/fonts/ubuntu-font-family-0.83/Ubuntu-R.ttf');
 }
 
+.full-width-dialog{
+    max-width: none !important;
+    width: calc(100vw - 16px)!important;
+}
+
 @import '~@angular/material/theming';
 $custom-typography: mat-typography-config($font-family: '"Ubuntu", sans-serif;');
 @include mat-core($custom-typography);

@@ -1,0 +1,69 @@
+<mat-card class="graph-main-container">
+
+    <div class="graph-container">
+
+      <button matTooltip="Export the graph in the card" mat-mini-fab color="primary" class="export-button" (click)="export()">
+        <mat-icon>arrow_downward</mat-icon>
+      </button>
+
+      <button matTooltip="Fit graph to card" mat-mini-fab color="accent" class="fit-button" (click)="fitToView()">
+        <mat-icon>aspect_ratio</mat-icon>
+      </button>
+
+      <button matTooltip="Refresh the graph" mat-mini-fab color="accent" class="refresh-button" (click)="refreshView()">
+        <mat-icon>autorenew</mat-icon>
+      </button>
+
+      <button *ngIf="showOpenDialog" matTooltip="Open in dialog" mat-mini-fab color="accent" class="open-dialog-button" (click)="openGraphDialog()">
+        <mat-icon>open_in_new</mat-icon>
+      </button>
+
+      <ngx-graph
+        class="graph-view"
+        [view]="graphViewBox"
+        [links]="links"
+        [nodes]="nodes"
+        [legend]="false"
+        [curve]="curve"
+        [zoomToFit$]="zoomToFit$"
+        [draggingEnabled]="true">
+
+        <ng-template #defsTemplate>
+          <svg:marker id="arrow" viewBox="0 -5 10 10" refX="8" refY="0" markerWidth="4" markerHeight="4" orient="auto" style="fill: #535c68;">
+            <svg:path d="M0,-5L10,0L0,5" class="arrow-head" />
+          </svg:marker>
+        </ng-template>
+
+        <ng-template #nodeTemplate let-node>
+          <svg:g class="node">
+            <svg:rect [attr.width]="node.width" [attr.height]="node.height" [attr.fill]="node.boxColor" rx="15" ry="15" />
+            <svg:text style="fill: #373d3f;" alignment-baseline="central" [attr.x]="10" [attr.y]="node.height / 2">{{node.label}}</svg:text>
+          </svg:g>
+        </ng-template>
+
+        <ng-template #linkTemplate let-link>
+          <svg:g class="edge">
+            <svg:path
+              class="line"
+              stroke="#535c68"
+              stroke-width="2"
+              marker-end="url(#arrow)" >
+            </svg:path>
+            <svg:text
+              style="fill: #535c68;"
+              class="edge-label"
+              text-anchor="start">
+            <textPath
+              style="fill: #373d3f; font-size:10;"
+              [attr.href]="'#' + link.id"
+              startOffset="10%">
+              {{link.label}}
+            </textPath>
+          </svg:text>
+          </svg:g>
+        </ng-template>
+
+      </ngx-graph>
+    </div>    
+
+  </mat-card>
